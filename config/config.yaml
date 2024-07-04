@@ -1,8 +1,8 @@
-artifacts_root: artifacts
+data_root: data
 
-data ingestion:
-    root_dir: artifacts/data_ingestion
-    source_URL: https://github.com/GautamaShastry/Branching-tutorial/raw/master/
-    local_data_file: artifacts/data_ingestion/
-    unzip_dir: artifacts/data_ingestion
+data_file:
+    root_dir: data/data_file
+    source_URL: https://github.com/GautamaShastry/Datasets/raw/main/housing-data.zip
+    local_data_file: data/data_file/data.zip
+    unzip_dir: data/data_file
 
