@@ -6,3 +6,8 @@ data_file:
     local_data_file: data/data_file/data.zip
     unzip_dir: data/data_file
 
+
+data_validation:
+    root_dir: data/data_validation
+    unzip_data_dir: data/data_file/housing.csv
+    STATUS_FILE: data/data_validation/status.txt
