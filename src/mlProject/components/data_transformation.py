@@ -12,6 +12,11 @@ class DataTransformation:
         # Perform data cleaning operations here
         cleaned_data = data.dropna(subset=['total_bedrooms'])
         return cleaned_data
+    
+    def handle_categorical_data(self, data):
+        # Perform any necessary operations on categorical data here
+        processed_data = pd.get_dummies(data, columns=['ocean_proximity'])
+        return processed_data
 
     def train_test_splitting(self):
         data = pd.read_csv(self.config.data_path)
@@ -19,8 +24,11 @@ class DataTransformation:
         # data cleaning(drop all rows with missing values)
         cleaned_data = self.clean_data(data)
         
+        # Handle Categorical data
+        processed_data = self.handle_categorical_data(cleaned_data)
+        
         # split the data into training and testing sets, (0.9,0.1) splits.
-        train, test = train_test_split(cleaned_data, test_size=0.1)
+        train, test = train_test_split(processed_data, test_size=0.1)
         
         train.to_csv(os.path.join(self.config.root_dir, "train.csv"), index = False)
         test.to_csv(os.path.join(self.config.root_dir, "test.csv"), index = False)
@@ -31,4 +39,6 @@ class DataTransformation:
         
         print(train.shape)
         print(test.shape)
+        print(train.head())
+        print(test.head())
         
