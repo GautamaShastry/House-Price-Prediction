@@ -11,3 +11,8 @@ data_validation:
     root_dir: data/data_validation
     unzip_data_dir: data/data_file/housing.csv
     STATUS_FILE: data/data_validation/status.txt
+
+
+data_transformation:
+    root_dir: data/data_transformation
+    data_path: data/data_file/housing.csv
